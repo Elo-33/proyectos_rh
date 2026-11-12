@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-bordo" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/empleados">RH App</a>
+
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#menu"
+            aria-controls="menu" aria-expanded="false" aria-label="Menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/empleados" routerLinkActive="active">Listado</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/agregar-empleado" routerLinkActive="active">Agregar</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet />

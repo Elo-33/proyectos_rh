@@ -1,0 +1,17 @@
+.navbar-bordo {
+  background-color: #6d1a36;
+  border-bottom: 2px solid #8f2a4a;
+}
+
+.navbar-bordo .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-bordo .nav-link:hover {
+  color: #fff;
+}
+
+.navbar-bordo .nav-link.active {
+  color: #fff;
+  font-weight: 600;
+}

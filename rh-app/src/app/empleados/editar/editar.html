@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Editar empleado</h2>
+
+  @if (cargando()) {
+    <p>Cargando...</p>
+  } @else {
+    <form #f="ngForm" (ngSubmit)="guardar()">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input id="nombre" name="nombre" class="form-control"
+               [(ngModel)]="empleado.nombre" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="departamento" class="form-label">Departamento</label>
+        <input id="departamento" name="departamento" class="form-control"
+               [(ngModel)]="empleado.departamento" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="sueldo" class="form-label">Sueldo</label>
+        <input id="sueldo" name="sueldo" type="number" class="form-control"
+               [(ngModel)]="empleado.sueldo" required min="0">
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Guardar cambios</button>
+      <a class="btn btn-secondary ms-2" href="/empleados">Cancelar</a>
+    </form>
+  }
+</div>
