@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { NumericFormat } from 'react-number-format'
 
@@ -14,6 +15,13 @@ export default function ListadoEmpleados() {
   const cargarEmpleados = async () => {
     const respuesta = await axios.get(urlBase)
     setEmpleados(respuesta.data)
+  }
+
+  const eliminarEmpleado = async (id) => {
+    if (confirm('¿Seguro que quieres eliminar este empleado?')) {
+      await axios.delete(`${urlBase}/${id}`)
+      cargarEmpleados()
+    }
   }
 
   return (
@@ -45,8 +53,18 @@ export default function ListadoEmpleados() {
                 />
               </td>
               <td>
-                <button className="btn btn-warning btn-sm me-2">Editar</button>
-                <button className="btn btn-danger btn-sm">Eliminar</button>
+                <Link
+                  to={`/editar/${empleado.idEmpleado}`}
+                  className="btn btn-warning btn-sm me-2"
+                >
+                  Editar
+                </Link>
+                <button
+                  className="btn btn-danger btn-sm"
+                  onClick={() => eliminarEmpleado(empleado.idEmpleado)}
+                >
+                  Eliminar
+                </button>
               </td>
             </tr>
           ))}
